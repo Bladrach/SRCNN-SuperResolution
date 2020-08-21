@@ -104,9 +104,8 @@ def convertTestLR(data_path, factor, size):
     y = y.astype(float) / 255.
     return y, cb, cr, orijinalResim, bozukResim
 
-# define a function for peak signal-to-noise ratio (PSNR)
-def PSNR(changedImg, originalImg):
-    #changedImg = np.array(changedImg)     
+# peak signal-to-noise ratio (PSNR)
+def PSNR(changedImg, originalImg):   
     changedImg = changedImg.astype(float)
     originalImg = originalImg.astype(float)
 
@@ -117,9 +116,8 @@ def PSNR(changedImg, originalImg):
     return 20 * math.log10(255. / RMSE)
 
 
-# define function for mean squared error (MSE)
+# mean squared error (MSE)
 def MSE(changedImg, originalImg):
-    # the MSE between the two images is the sum of the squared difference between the two images
     err = np.sum((changedImg.astype('float') - originalImg.astype('float')) ** 2)
     err /= float(changedImg.shape[0] * changedImg.shape[1])
     return err
